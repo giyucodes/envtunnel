@@ -148,7 +148,7 @@ Edit `packages/web/.env`:
 
 ```env
 UPSTASH_REDIS_REST_URL=https://new-db.upstash.io
-UPSTASH_REDIS_REST_TOKEN=new_token_here
+UPSTASH_REDIS_REST_TOKEN=new_upstash_token_here
 ```
 
 Then restart the dev server:
