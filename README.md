@@ -48,6 +48,7 @@ envtunnel pull <token> --redis-url https://xxx.upstash.io --redis-token AXxx...
 Visit `/dashboard` for a browser UI to push and pull without the CLI.
 
 Features:
+
 - Generate a strong passphrase (word-word-word-word-NN format)
 - Paste `.env` contents, encrypt, and get a shareable token
 - Pull a token by entering it + passphrase — downloads or displays the decrypted vars
@@ -61,19 +62,23 @@ Features:
 By default, all tunnels use the server's built-in Upstash Redis. For full privacy (your data never touches someone else's storage), you can bring your own:
 
 ### Via the web dashboard
+
 1. Open the **upstash config** panel at the top of the dashboard
 2. Enter your REST URL and REST Token
 3. Click **test connection** to verify
 4. All push/pull operations on that session will use your Redis
 
 ### Via the CLI
+
 Pass `--redis-url` and `--redis-token` to any command:
+
 ```bash
 envtunnel push --redis-url https://your-db.upstash.io --redis-token AXxx...
 envtunnel pull <token> --redis-url https://your-db.upstash.io --redis-token AXxx...
 ```
 
 ### Get free Upstash creds
+
 1. Go to [console.upstash.com](https://console.upstash.com)
 2. Create a Redis database (free tier is fine)
 3. Copy the **REST URL** and **REST Token** from the database page
@@ -83,6 +88,7 @@ envtunnel pull <token> --redis-url https://your-db.upstash.io --redis-token AXxx
 ## Self-Hosting / Dev Setup
 
 ### Prerequisites
+
 - [Bun](https://bun.sh) v1.0+
 - An [Upstash Redis](https://console.upstash.com) database (free tier works)
 
@@ -90,7 +96,7 @@ envtunnel pull <token> --redis-url https://your-db.upstash.io --redis-token AXxx
 
 ```bash
 # 1. Clone and install
-git clone https://github.com/YOUR_USERNAME/envtunnel.git
+git clone https://github.com/giyucodes/envtunnel.git
 cd envtunnel
 bun install
 
@@ -99,6 +105,7 @@ cp packages/web/.env.example packages/web/.env
 ```
 
 Edit `packages/web/.env`:
+
 ```env
 UPSTASH_REDIS_REST_URL=https://your-db-name.upstash.io
 UPSTASH_REDIS_REST_TOKEN=your_rest_token_here
@@ -138,12 +145,14 @@ The script handles cloning, installing, prompting for Upstash creds, building th
 ### Server-side (self-hosted)
 
 Edit `packages/web/.env`:
+
 ```env
 UPSTASH_REDIS_REST_URL=https://new-db.upstash.io
 UPSTASH_REDIS_REST_TOKEN=new_token_here
 ```
 
 Then restart the dev server:
+
 ```bash
 # kill existing server (if running in tmux)
 tmux kill-session -t dev
@@ -176,13 +185,13 @@ envtunnel/
 
 ### API Endpoints
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `POST` | `/api/tunnel/push` | Encrypt + store, returns token |
-| `GET` | `/api/tunnel/pull/:token` | Fetch encrypted payload (does NOT delete) |
-| `DELETE` | `/api/tunnel/consume/:token` | Destroy token after successful decrypt |
-| `GET` | `/api/tunnel/peek/:token` | Check if token exists + TTL remaining |
-| `POST` | `/api/tunnel/validate-redis` | Test custom Upstash credentials |
+| Method   | Endpoint                     | Description                               |
+| -------- | ---------------------------- | ----------------------------------------- |
+| `POST`   | `/api/tunnel/push`           | Encrypt + store, returns token            |
+| `GET`    | `/api/tunnel/pull/:token`    | Fetch encrypted payload (does NOT delete) |
+| `DELETE` | `/api/tunnel/consume/:token` | Destroy token after successful decrypt    |
+| `GET`    | `/api/tunnel/peek/:token`    | Check if token exists + TTL remaining     |
+| `POST`   | `/api/tunnel/validate-redis` | Test custom Upstash credentials           |
 
 All endpoints accept optional `redisUrl` / `redisToken` (query params for GET/DELETE, body for POST) to use a custom Redis instance.
 
@@ -190,13 +199,13 @@ All endpoints accept optional `redisUrl` / `redisToken` (query params for GET/DE
 
 ## Stack
 
-| Layer | Tech |
-|-------|------|
-| CLI | Node.js, Commander, Chalk, Ora |
-| API | Hono (Bun) |
-| Storage | Upstash Redis (TTL-based, one-time) |
-| Encryption | AES-256-GCM, PBKDF2 key derivation |
-| Frontend | React + Vite |
+| Layer      | Tech                                |
+| ---------- | ----------------------------------- |
+| CLI        | Node.js, Commander, Chalk, Ora      |
+| API        | Hono (Bun)                          |
+| Storage    | Upstash Redis (TTL-based, one-time) |
+| Encryption | AES-256-GCM, PBKDF2 key derivation  |
+| Frontend   | React + Vite                        |
 
 ---
 

@@ -88,11 +88,7 @@ export default function LandingPage() {
       <nav
         style={{
           borderBottom: "1px solid var(--border)",
-          padding: "0 40px",
           height: 56,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
           position: "sticky",
           top: 0,
           background: "rgba(10,10,10,0.9)",
@@ -102,29 +98,43 @@ export default function LandingPage() {
       >
         <div
           style={{
+            maxWidth: 1100,
+            margin: "0 auto",
+            padding: "0 40px",
+            height: "100%",
             display: "flex",
             alignItems: "center",
-            gap: 8,
-            fontWeight: 700,
-            fontSize: 15,
-            letterSpacing: "-0.02em",
+            justifyContent: "space-between",
           }}
         >
-          <Terminal size={16} color="var(--accent)" />
-          <span>envtunnel</span>
-        </div>
-        <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
-          <a
-            href="https://github.com"
-            style={{ color: "var(--muted2)", fontSize: 13 }}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 8,
+              fontWeight: 700,
+              fontSize: 15,
+              letterSpacing: "-0.02em",
+            }}
           >
-            github
-          </a>
-          <Link to="/dashboard">
-            <button className="btn-primary" style={{ padding: "6px 16px" }}>
-              dashboard
-            </button>
-          </Link>
+            <Terminal size={16} color="var(--accent)" />
+            <span>envtunnel</span>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
+            <a
+              href="https://github.com/giyucodes/envtunnel"
+              target="_blank"
+              rel="noreferrer"
+              style={{ color: "var(--muted2)", fontSize: 13 }}
+            >
+              github
+            </a>
+            <Link to="/dashboard">
+              <button className="btn-primary" style={{ padding: "6px 16px" }}>
+                dashboard
+              </button>
+            </Link>
+          </div>
         </div>
       </nav>
 
@@ -147,7 +157,8 @@ export default function LandingPage() {
             transform: "translateX(-50%)",
             width: 400,
             height: 200,
-            background: "radial-gradient(ellipse, rgba(0,255,136,0.06) 0%, transparent 70%)",
+            background:
+              "radial-gradient(ellipse, rgba(0,255,136,0.06) 0%, transparent 70%)",
             pointerEvents: "none",
           }}
         />
@@ -232,7 +243,9 @@ export default function LandingPage() {
       </section>
 
       {/* Features */}
-      <section style={{ padding: "80px 40px", maxWidth: 1100, margin: "0 auto" }}>
+      <section
+        style={{ padding: "80px 40px", maxWidth: 1100, margin: "0 auto" }}
+      >
         <div className="section-label">why envtunnel</div>
         <div
           style={{
@@ -249,10 +262,15 @@ export default function LandingPage() {
               style={{
                 padding: "32px 28px",
                 background: "var(--surface)",
-                borderRight: i < features.length - 1 ? "1px solid var(--border)" : "none",
+                borderRight:
+                  i < features.length - 1 ? "1px solid var(--border)" : "none",
               }}
             >
-              <f.icon size={20} color="var(--accent)" style={{ marginBottom: 16 }} />
+              <f.icon
+                size={20}
+                color="var(--accent)"
+                style={{ marginBottom: 16 }}
+              />
               <div
                 style={{
                   fontWeight: 700,
@@ -264,7 +282,13 @@ export default function LandingPage() {
               >
                 {f.title}
               </div>
-              <p style={{ color: "var(--muted2)", lineHeight: 1.7, fontSize: 13 }}>
+              <p
+                style={{
+                  color: "var(--muted2)",
+                  lineHeight: 1.7,
+                  fontSize: 13,
+                }}
+              >
                 {f.desc}
               </p>
             </div>

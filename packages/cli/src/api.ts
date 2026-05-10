@@ -1,4 +1,4 @@
-const DEFAULT_API = "https://envtunnel.runable.app";
+const DEFAULT_API = "https://envtunnel.runable.site";
 
 export function getApiBase(): string {
   return process.env.ENVTUNNEL_API ?? DEFAULT_API;

@@ -8,6 +8,7 @@ dist-electron
 release
 web-build
 *.tgz
+.npmrc
 
 # code coverage
 coverage

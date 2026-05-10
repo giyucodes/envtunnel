@@ -6,7 +6,7 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "cd packages/web && bunx vite",
+    "dev": "cd packages/web && bunx vite --port 4200",
     "dev:desktop": "cd packages/desktop && bunx vite",
     "dev:mobile": "cd packages/mobile && bunx expo start",
     "build": "turbo build",
@@ -19,7 +19,8 @@
   "devDependencies": {
     "@tursodatabase/api": "^1.9.2",
     "@types/bun": "latest",
-    "turbo": "^2"
+    "turbo": "^2",
+    "vite": "^7.3.1"
   },
   "peerDependencies": {
     "typescript": "^5"

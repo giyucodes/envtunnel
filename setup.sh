@@ -5,7 +5,7 @@ set -e
 #  envtunnel – local setup script
 # ─────────────────────────────────────────────
 
-REPO_URL="https://github.com/YOUR_USERNAME/envtunnel.git"  # ← update this
+REPO_URL="https://github.com/giyucodes/envtunnel.git"  # ← update this
 PROJECT_DIR="envtunnel"
 
 RED='\033[0;31m'
